@@ -52,3 +52,8 @@
 ### Corretto il trattamento delle categorie dei Todo nel localStorage
 ###
 ### Ottavo commit: "fix: corretta gestione di categorie in localStorage"
+
+## v0.0.8 - Aggiunta funzione countCompletedTodos
+### Implementata funzione per visualizzare il numero di Todo completati
+###
+### Nono commit: "feat: aggiunta funzione countCompletedTodos"
