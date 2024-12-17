@@ -6,8 +6,8 @@ const todoList = [];
  * @param category Categoria del todo
  */
 const addTodo = (title, category) => {
-    const id = Date.now().toString(); 
-    const newTodo = { id, title, category }; //Creazione oggetto todo
+    const id = Date.now().toString();
+    const newTodo = { id, title, category, completed: false }; //Creazione oggetto todo
 
     todoList.push(newTodo); //Aggiunge il todo all'array
 
@@ -21,14 +21,26 @@ const addTodo = (title, category) => {
 const deleteTodo = (id) => {
     const index = todoList.findIndex(todo => todo.id === id); //Trova l'indice del Todo da eliminare
 
-    if(index !== -1) {
+    if (index !== -1) {
         todoList.splice(index, 1); //Rimuove il Todo dall'array
     }
 
     renderTodos(); //Aggiorna la lista visibile
 }
 
-//Mostra la lista dei Todo
+/**
+ * Funzione toggleComplete: permette di segnare un Todo come completato
+ * @param id Id del Todo per segnare come completato il todo
+ */
+const toggleComplete = (id) => {
+    const todo = todoList.find(todo => todo.id === id); //Trova il Todo nell'array
+
+    if (todo) todo.completed = !todo.completed; //Cambia lo stato "completed"
+
+    renderTodos();
+}
+
+//Mostra la lista dei Todo, con pulsante "Completato" ed "Elimina"
 const renderTodos = () => {
     const todoListElement = document.getElementById('todo-list');
     todoListElement.innerHTML = '';
@@ -36,7 +48,8 @@ const renderTodos = () => {
     todoList.forEach(todo => {
         const li = document.createElement('li');
         li.innerHTML = `
-            <span>${todo.title} (${todo.category})</span>
+            <span>${todo.title} (${todo.category}) ${todo.completed ? '✔️' : ''}</span>
+            <button onclick="toggleComplete('${todo.id}')">Completato</button>
             <button onclick="deleteTodo('${todo.id}')">Elimina</button>
         `
 

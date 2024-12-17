@@ -16,14 +16,14 @@
 ### - category: categoria selezionata dall'utente
 ### 
 ### Secondo commit: "feat: aggiunta funzione addTodo"
-###
 
 ## v0.0.2
 ### - Implementata la funzione deleteTodo per rimuovere i Todo esistenti.
 ### - Aggiunto il pulsante "Elimina accanto a ogni Todo nell'interfaccia
 ### 
 ### Terzo commit: "feat: aggiunta funzione deleteTodo"
+
+## v0.0.3
+### - Implementata la funzione toggleComplete per alterare lo stato di completamento dei Todo
 ###
-###
-###
-###
+### Quarto commit: "feat: aggiunta funzione toggleComplete"
