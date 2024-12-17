@@ -14,17 +14,18 @@ Una semplice applicazione Todo che permette agli utenti di aggiungere, modificar
   node -v
   npm -v
 
-### **Passaggi per installare e avviare il progetto
+### **Passaggi per installare e avviare il progetto**
 
 1. Clonare il repository: Se non l'hai già fatto, clona il repository sul tuo sistema locale:
 
  `git clone https://github.com/tuo-username/todo-app.git`
 
 2. Installare le dipendenze: Vai nella cartella del progetto e installa le dipendenze necessarie:
- 
- ```bash
- cd todo-app
- npm install
+
+```bash
+cd todo-app
+npm install
+npm start
 
 3. Avviare il progetto: Una volta installate le dipendenze, avvia il progetto:
 
