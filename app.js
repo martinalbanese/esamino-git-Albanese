@@ -9,13 +9,13 @@ let filterCategory = 'all'
  */
 const loadTodos = () => {
     const storedTodos = localStorage.getItem('todos');
-    
-    if(storedTodos) {
+
+    if (storedTodos) {
         todoList = JSON.parse(storedTodos);
 
         //Corregge le categorie, se necessario
         todoList.forEach(todo => {
-            if(!['personale', 'lavoro', 'altro'].includes(todo.category)) {
+            if (!['personale', 'lavoro', 'altro'].includes(todo.category)) {
                 todo.category = 'altro' //Imposta la categoria predefinita se non valida
             }
         })
@@ -38,7 +38,7 @@ const saveTodos = () => {
  */
 const addTodo = (title, category) => {
     const id = Date.now().toString();
-    const newTodo = { id, title, category, completed: false }; //Creazione oggetto todo
+    const newTodo = { id, title, category, completed: false }; //Ripristinata categoria nell'oggetto todo
 
     todoList.push(newTodo); //Aggiunge il todo all'array
 
@@ -100,18 +100,19 @@ const applyFilters = () => {
 const editTodo = (id, newTitle, newCategory) => {
     const todo = todoList.find(todo => todo.id === id); // Trova il Todo nell'array
     if (todo) {
-      todo.title = newTitle;  // Modifica il titolo
-      todo.category = newCategory;  // Modifica la categoria
-      saveTodos();  // Salva nel localStorage
-      renderTodos();  // Rende visibile la lista aggiornata
+        todo.title = newTitle;  // Modifica il titolo
+        todo.category = newCategory;  // Modifica la categoria
+        saveTodos();  // Salva nel localStorage
+        renderTodos();  // Rende visibile la lista aggiornata
     }
+}
 
 // Funzione per calcolare il numero di Todo completati e non completati
 const countCompletedTodos = () => {
     const completed = todoList.filter(todo => todo.completed).length;
     const notCompleted = todoList.length - completed;
     document.getElementById('completed-count').innerText = `Completati: ${completed}, Non completati: ${notCompleted}`;
-  };
+};
 
 //Mostra la lista dei Todo, con pulsante "Completato" ed "Elimina"
 const renderTodos = (todos = todoList) => {
