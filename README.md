@@ -22,10 +22,9 @@ Una semplice applicazione Todo che permette agli utenti di aggiungere, modificar
 
 2. Installare le dipendenze: Vai nella cartella del progetto e installa le dipendenze necessarie:
 
-```bash
-cd todo-app
-npm install
-npm start
+`cd todo-app`
+`npm install`
+`npm start`
 
 3. Avviare il progetto: Una volta installate le dipendenze, avvia il progetto:
 
@@ -33,17 +32,23 @@ npm start
 
 ## **Funzionalità implementate**
 
-1. Aggiunta Todo: Gli utenti possono aggiungere nuovi Todo con un titolo e una categoria. Il Todo verrà salvato nel localStorage per persistenza.
+1. Aggiunta Todo: 
+Gli utenti possono aggiungere nuovi Todo con un titolo e una categoria. Il Todo verrà salvato nel localStorage per persistenza.
 
-2. Eliminazione Todo: Gli utenti possono eliminare un Todo dalla lista.
+2. Eliminazione Todo: 
+Gli utenti possono eliminare un Todo dalla lista.
 
-3. Completamento Todo: Gli utenti possono segnare un Todo come completato o non completato. I Todo completati vengono visualizzati con un'icona di spunta (✔️).
+3. Completamento Todo: 
+Gli utenti possono segnare un Todo come completato o non completato. I Todo completati vengono visualizzati con un'icona di spunta (✔️).
 
-4. Modifica Todo: Gli utenti possono modificare il titolo e la categoria di un Todo esistente tramite un prompt.
+4. Modifica Todo: 
+Gli utenti possono modificare il titolo e la categoria di un Todo esistente tramite un prompt.
 
-5. Filtraggio Todo: Gli utenti possono filtrare i Todo per stato (completati, non completati, tutti) e categoria.
+5. Filtraggio Todo: 
+Gli utenti possono filtrare i Todo per stato (completati, non completati, tutti) e categoria.
 
-6. Persistenza dei Dati: I Todo vengono salvati nel localStorage, quindi anche se l'utente ricarica la pagina o chiude il browser, i Todo rimangono.
+6. Persistenza dei Dati: 
+I Todo vengono salvati nel localStorage, quindi anche se l'utente ricarica la pagina o chiude il browser, i Todo rimangono.
 
 ## **Principali Operazioni Git Utilizzate**
 
@@ -75,9 +80,8 @@ git commit -m "Descrizione del cambiamento"
 ### Unione delle modifiche con git merge
 - Quando una funzionalità o bug-fix è completato, uniamo le modifiche alla branch principale (main) usando il comando merge:
 
-```bash
-git checkout main
-git merge nome-branch
+`git checkout main`
+`git merge nome-branch`
 
 - Per fare un merge univoco di moltiplici commit usiamo:
 
