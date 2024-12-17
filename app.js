@@ -96,6 +96,17 @@ const applyFilters = () => {
     renderTodos(filteredTodos);
 }
 
+// Funzione editTodo: permette di modificare il titolo e la categoria di un Todo
+const editTodo = (id, newTitle, newCategory) => {
+    const todo = todoList.find(todo => todo.id === id); // Trova il Todo nell'array
+    if (todo) {
+      todo.title = newTitle;  // Modifica il titolo
+      todo.category = newCategory;  // Modifica la categoria
+      saveTodos();  // Salva nel localStorage
+      renderTodos();  // Rende visibile la lista aggiornata
+    }
+  };
+
 //Mostra la lista dei Todo, con pulsante "Completato" ed "Elimina"
 const renderTodos = (todos = todoList) => {
     const todoListElement = document.getElementById('todo-list');
@@ -107,6 +118,7 @@ const renderTodos = (todos = todoList) => {
             <span>${todo.title} (${todo.category}) ${todo.completed ? '✔️' : ''}</span>
             <button onclick="toggleComplete('${todo.id}')">Completato</button>
             <button onclick="deleteTodo('${todo.id}')">Elimina</button>
+            <button onclick="editTodo('${todo.id}', prompt('Nuovo titolo:', '${todo.title}'), prompt('Nuova categoria:', '${todo.category}'))">Modifica</button>
         `
 
         todoListElement.appendChild(li);

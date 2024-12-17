@@ -52,3 +52,8 @@
 ### Corretto il trattamento delle categorie dei Todo nel localStorage
 ###
 ### Ottavo commit: "fix: corretta gestione di categorie in localStorage"
+
+## v0.0.8 - Aggiunta funzione editTodo
+### Implementata funzione per modificare i Todo
+###
+### Nono commit: "feat: aggiunta funzione editTodo"
