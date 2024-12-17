@@ -62,3 +62,8 @@
 ### Implementata funzione per visualizzare il numero di Todo completati
 ###
 ### Decimo commit: "feat: aggiunta funzione countCompletedTodos"
+
+## v0.1.0
+### Risolto un conflitto tra le funzionalità `edit-todos` (modifica del titolo e categoria) e `completed-count` (visualizzazione dei Todo completati/non completati).
+### Combinate entrambe le funzionalità nella funzione `renderTodos` per garantire che entrambe possano coesistere correttamente.
+### Undicesimo commit: "fix: risolto conflitto tra branch edit-todos e completed-count"
