@@ -1,5 +1,9 @@
 const todoList = [];
 
+//Variabili per il tracciamento dei filtri correnti
+let filterStatus = 'all';
+let filterCategory = 'all'
+
 /**
  * Funzione addTodo: permette di aggiungere un todo a una categoria
  * @param title Titolo del todo
@@ -40,12 +44,31 @@ const toggleComplete = (id) => {
     renderTodos();
 }
 
+/**
+ * Funzione applyFilters: permette di applicare i filtri e aggiornare la lista visibile
+ */
+const applyFilters = () => {
+    const filteredTodos = todoList.filter(todo => {
+        const statusMatch =
+            filterStatus === 'all' ||
+            (filterStatus === 'completed' && todo.completed) ||
+            (filterStatus === 'not-completed' && !todo.completed);
+
+        const categoryMatch = 
+            filterCategory === 'all' || todo.category === filterCategory;
+        
+        return statusMatch && categoryMatch;
+    })
+
+    renderTodos(filteredTodos);
+}
+
 //Mostra la lista dei Todo, con pulsante "Completato" ed "Elimina"
-const renderTodos = () => {
+const renderTodos = (todos = todoList) => {
     const todoListElement = document.getElementById('todo-list');
     todoListElement.innerHTML = '';
 
-    todoList.forEach(todo => {
+    todos.forEach(todo => {
         const li = document.createElement('li');
         li.innerHTML = `
             <span>${todo.title} (${todo.category}) ${todo.completed ? '✔️' : ''}</span>
@@ -64,5 +87,12 @@ document.getElementById('add-todo').addEventListener('click', () => {
 
     if (title) addTodo(title, category);
 });
+
+// Aggiorna i filtri quando l'utente li applica
+document.getElementById('apply-filters').addEventListener('click', () => {
+    filterStatus = document.getElementById('filter-status').value;
+    filterCategory = document.getElementById('filter-category').value;
+    applyFilters();
+  });
 
 

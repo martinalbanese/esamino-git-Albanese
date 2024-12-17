@@ -1,51 +1,184 @@
+/* Global styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
-  }
-  
-  .todo-app {
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.todo-app {
+    width: 100%;
     max-width: 600px;
     margin: 20px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    justify-items: center;
-  }
-  
-  h1 {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
     text-align: center;
     color: #333;
-  }
-  
-  .todo-input {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Input and buttons styling */
+.todo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;  /* Increased spacing between elements */
+    margin-bottom: 20px;
+}
+
+.todo-input input, 
+.todo-input select, 
+.todo-input button {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+/* Focus effect on inputs and selects */
+.todo-input input:focus,
+.todo-input select:focus,
+.todo-input button:focus {
+    outline: none;
+    border-color: #4CAF50; /* Highlight color */
+}
+
+/* Input field styling */
+.todo-input input {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fafafa;
+}
+
+.todo-input input::placeholder {
+    color: #999;
+}
+
+/* Category select dropdown styling */
+.todo-input select {
+    width: 100%;
+    background-color: #fafafa;
+}
+
+/* Button styling */
+.todo-input button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.todo-input button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.todo-input button:active {
+    background-color: #388E3C; /* Darker shade on click */
+    transform: translateY(0); /* Reset the lift effect */
+}
+
+/* Filters section */
+.todo-filters {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
-  }
-  
-  .todo-input input, 
-  .todo-input select, 
-  .todo-input button {
-    padding: 10px;
+    justify-content: space-between;
+}
+
+.todo-filters select,
+.todo-filters button {
+    padding: 12px;
     font-size: 16px;
-  }
-  
-  #todo-list {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.todo-filters button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.todo-filters button:hover {
+    background-color: #0056b3;
+}
+
+/* Todo list styling */
+#todo-list {
     list-style: none;
     padding: 0;
-  }
-  
-  #todo-list li {
-    padding: 10px;
-    margin: 5px 0;
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+}
+
+#todo-list li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
+    padding: 15px;
+    background: #fff;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+#todo-list li:hover {
+    background-color: #f0f0f0;
+}
+
+#todo-list li span {
+    font-size: 16px;
+    color: #333;
+    flex-grow: 1;
+}
+
+#todo-list li button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #007BFF;
+    font-size: 14px;
+    margin-left: 10px;
+    transition: color 0.3s;
+}
+
+#todo-list li button:hover {
+    color: #0056b3;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .todo-input {
+        flex-direction: column;
+    }
+
+    .todo-filters {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .todo-input input,
+    .todo-input select,
+    .todo-input button {
+        width: 100%;
+    }
+
+    .todo-filters select,
+    .todo-filters button {
+        width: 100%;
+    }
+}

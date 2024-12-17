@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo App</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <!-- Sezione input per aggiungere nuovi Todo -->
     <div class="todo-app">
         <h1>Gestione Todo</h1>
-        <div>
-            <input type="text" id="todo-title" placeholder="Inserisci il titolo del Todo"/>
+        <div class="todo-input">
+            <input type="text" id="todo-title" placeholder="Inserisci il titolo del Todo" />
             <select id="todo-category">
                 <option value="personale">Personale</option>
                 <option value="lavoro">Lavoro</option>
@@ -18,9 +21,28 @@
             </select>
             <button id="add-todo">Aggiungi</button>
         </div>
+
+        <!-- Sezione filtri -->
+        <div class="todo-filters">
+            <select id="filter-status">
+                <option value="all">Tutti</option>
+                <option value="completed">Completati</option>
+                <option value="not-completed">Non completati</option>
+            </select>
+            <select id="filter-category">
+                <option value="all">Tutte le categorie</option>
+                <option value="personale">Personale</option>
+                <option value="lavoro">Lavoro</option>
+                <option value="altro">Altro</option>
+            </select>
+            <button id="apply-filters">Applica filtri</button>
+        </div>
+
+        <!-- Lista dei Todo -->
         <ul id="todo-list"></ul>
     </div>
 
     <script src="app.js"></script>
 </body>
+
 </html>
