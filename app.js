@@ -105,6 +105,12 @@ const editTodo = (id, newTitle, newCategory) => {
       saveTodos();  // Salva nel localStorage
       renderTodos();  // Rende visibile la lista aggiornata
     }
+
+// Funzione per calcolare il numero di Todo completati e non completati
+const countCompletedTodos = () => {
+    const completed = todoList.filter(todo => todo.completed).length;
+    const notCompleted = todoList.length - completed;
+    document.getElementById('completed-count').innerText = `Completati: ${completed}, Non completati: ${notCompleted}`;
   };
 
 //Mostra la lista dei Todo, con pulsante "Completato" ed "Elimina"
@@ -123,6 +129,8 @@ const renderTodos = (todos = todoList) => {
 
         todoListElement.appendChild(li);
     });
+
+    countCompletedTodos();  // Visualizza il conteggio dei Todo completati/non completati
 };
 
 //Carica i Todo quando la pagina viene caricata

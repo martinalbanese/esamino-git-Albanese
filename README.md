@@ -57,3 +57,8 @@
 ### Implementata funzione per modificare i Todo
 ###
 ### Nono commit: "feat: aggiunta funzione editTodo"
+
+## v0.0.9 - Aggiunta funzione countCompletedTodos
+### Implementata funzione per visualizzare il numero di Todo completati
+###
+### Decimo commit: "feat: aggiunta funzione countCompletedTodos"
