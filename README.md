@@ -60,8 +60,5 @@
 
 ## v0.1.1
 ### Introdotto un bug nella funzione addTodo: ora i Todo vengono salvati senza categoria
-### Dodicesimo commit: "feat: aggiunta buggy-feature"
+### Dodicesimo commit: "feat: aggiunta buggy-feature"O
 
-## v0.1.2
-### Rimozione accidentale della funzione applyFilters
-### Tredicesimo commit: "feat: rimozione della funzione applyFilters"
