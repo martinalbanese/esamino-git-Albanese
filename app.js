@@ -80,7 +80,7 @@ const toggleComplete = (id) => {
 /**
  * Funzione applyFilters: permette di applicare i filtri e aggiornare la lista visibile
  */
-const applyFilters = () => {
+/* const applyFilters = () => {
     const filteredTodos = todoList.filter(todo => {
         const statusMatch =
             filterStatus === 'all' ||
@@ -94,7 +94,7 @@ const applyFilters = () => {
     })
 
     renderTodos(filteredTodos);
-}
+} */
 
 // Funzione editTodo: permette di modificare il titolo e la categoria di un Todo
 const editTodo = (id, newTitle, newCategory) => {
