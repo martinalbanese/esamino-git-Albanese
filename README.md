@@ -24,7 +24,6 @@ Una semplice applicazione Todo che permette agli utenti di aggiungere, modificar
 
 `cd todo-app`
 `npm install`
-`npm start`
 
 3. Avviare il progetto: Una volta installate le dipendenze, avvia il progetto:
 
@@ -73,9 +72,8 @@ I Todo vengono salvati nel localStorage, quindi anche se l'utente ricarica la pa
 ### Creazione di commit
 Un commit registra le modifiche apportate al progetto:
 
-```bash
-git add .
-git commit -m "Descrizione del cambiamento"
+`git add .`
+`git commit -m "Descrizione del cambiamento"`
 
 ### Unione delle modifiche con git merge
 - Quando una funzionalità o bug-fix è completato, uniamo le modifiche alla branch principale (main) usando il comando merge:
@@ -90,9 +88,8 @@ git commit -m "Descrizione del cambiamento"
 ### Risoluzione dei conflitti di merge
 Quando due branch modificano la stessa parte di codice, può verificarsi un conflitto durante il merge. 
 
-```bash
-git add .
-git commit -m "fix: risolto conflitto tra nome-branch1 e nome-branch2"
+`git add .`
+`git commit -m "fix: risolto conflitto tra nome-branch1 e nome-branch2"`
 
 ### Rebase interattivo per mantenere una cronologia pulita
 Per mantenere una cronologia pulita si può usare un rebase interattivo per combinare o modificare le commit precedenti.
