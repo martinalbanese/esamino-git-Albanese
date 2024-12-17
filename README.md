@@ -41,3 +41,14 @@
 ###
 ### Sesto commit: "feat: migliorato layout della pagina"
 
+## v0.0.6 - Memorizzazione locale
+### Aggiunta la persistenza dei Todo usando il localStorage:
+### - i Todo vengono caricati automaticamente al caricamento della pagina;
+### - quando vengono aggiunti, eliminati o aggiornati i Todo, la lista viene salvata
+###
+### Settimo commit: "feat: persistenza Todo con localStorage"
+
+## v0.0.7 - Corretta gestione di categorie
+### Corretto il trattamento delle categorie dei Todo nel localStorage
+###
+### Ottavo commit: "fix: corretta gestione di categorie in localStorage"

@@ -1,8 +1,35 @@
-const todoList = [];
+let todoList = [];
 
 //Variabili per il tracciamento dei filtri correnti
 let filterStatus = 'all';
 let filterCategory = 'all'
+
+/**
+ * Funzione loadTodos: permette di caricare i Todo dal localStorage
+ */
+const loadTodos = () => {
+    const storedTodos = localStorage.getItem('todos');
+    
+    if(storedTodos) {
+        todoList = JSON.parse(storedTodos);
+
+        //Corregge le categorie, se necessario
+        todoList.forEach(todo => {
+            if(!['personale', 'lavoro', 'altro'].includes(todo.category)) {
+                todo.category = 'altro' //Imposta la categoria predefinita se non valida
+            }
+        })
+    }
+
+    renderTodos();
+}
+
+/**
+ * Funzione SaveTodos: permette di salvare i Todo nel localStorage
+ */
+const saveTodos = () => {
+    localStorage.setItem('todos', JSON.stringify(todoList));
+}
 
 /**
  * Funzione addTodo: permette di aggiungere un todo a una categoria
@@ -14,6 +41,8 @@ const addTodo = (title, category) => {
     const newTodo = { id, title, category, completed: false }; //Creazione oggetto todo
 
     todoList.push(newTodo); //Aggiunge il todo all'array
+
+    saveTodos(); //Salva nel localStorage
 
     renderTodos(); //Aggiorna la lista visibile
 }
@@ -27,6 +56,7 @@ const deleteTodo = (id) => {
 
     if (index !== -1) {
         todoList.splice(index, 1); //Rimuove il Todo dall'array
+        saveTodos(); // Salva nel localStorage
     }
 
     renderTodos(); //Aggiorna la lista visibile
@@ -39,7 +69,10 @@ const deleteTodo = (id) => {
 const toggleComplete = (id) => {
     const todo = todoList.find(todo => todo.id === id); //Trova il Todo nell'array
 
-    if (todo) todo.completed = !todo.completed; //Cambia lo stato "completed"
+    if (todo) {
+        todo.completed = !todo.completed; //Cambia lo stato "completed"
+        saveTodos(); // Salva nel localStorage
+    }
 
     renderTodos();
 }
@@ -54,9 +87,9 @@ const applyFilters = () => {
             (filterStatus === 'completed' && todo.completed) ||
             (filterStatus === 'not-completed' && !todo.completed);
 
-        const categoryMatch = 
+        const categoryMatch =
             filterCategory === 'all' || todo.category === filterCategory;
-        
+
         return statusMatch && categoryMatch;
     })
 
@@ -80,6 +113,9 @@ const renderTodos = (todos = todoList) => {
     });
 };
 
+//Carica i Todo quando la pagina viene caricata
+document.addEventListener('DOMContentLoaded', loadTodos); // Carica i Todo all'avvio
+
 //Aggiunge un Todo quando si clicca sul pulsante
 document.getElementById('add-todo').addEventListener('click', () => {
     const title = document.getElementById('todo-title').value;
@@ -93,6 +129,8 @@ document.getElementById('apply-filters').addEventListener('click', () => {
     filterStatus = document.getElementById('filter-status').value;
     filterCategory = document.getElementById('filter-category').value;
     applyFilters();
-  });
+});
+
+
 
 
