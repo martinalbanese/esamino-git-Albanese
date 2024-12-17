@@ -152,6 +152,13 @@ document.getElementById('apply-filters').addEventListener('click', () => {
     applyFilters();
 });
 
+//Funzione per risolvere un bug urgente
+const fixUrgentBug = () => {
+    if (!todoList || todoList.length === 0) {
+        console.log("Nessun Todo trovato!");
+    }
+};
+
 
 
 
