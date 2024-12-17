@@ -1,7 +1,7 @@
 const todoList = [];
 
 /**
- * Funzione addTodo: permette dia ggiungere un todo a una categoria
+ * Funzione addTodo: permette di aggiungere un todo a una categoria
  * @param title Titolo del todo
  * @param category Categoria del todo
  */
@@ -10,6 +10,20 @@ const addTodo = (title, category) => {
     const newTodo = { id, title, category }; //Creazione oggetto todo
 
     todoList.push(newTodo); //Aggiunge il todo all'array
+
+    renderTodos(); //Aggiorna la lista visibile
+}
+
+/**
+ * Funzione deleteTodo: permette di eliminare un todo presente nell'array todoList
+ * @param id Id del Todo da eliminare
+ */
+const deleteTodo = (id) => {
+    const index = todoList.findIndex(todo => todo.id === id); //Trova l'indice del Todo da eliminare
+
+    if(index !== -1) {
+        todoList.splice(index, 1); //Rimuove il Todo dall'array
+    }
 
     renderTodos(); //Aggiorna la lista visibile
 }
@@ -23,6 +37,7 @@ const renderTodos = () => {
         const li = document.createElement('li');
         li.innerHTML = `
             <span>${todo.title} (${todo.category})</span>
+            <button onclick="deleteTodo('${todo.id}')">Elimina</button>
         `
 
         todoListElement.appendChild(li);
@@ -36,3 +51,5 @@ document.getElementById('add-todo').addEventListener('click', () => {
 
     if (title) addTodo(title, category);
 });
+
+
